@@ -2,13 +2,13 @@ async function getCategory(){
     try{
         const post =await fetch('https://dummyjson.com/products/category-list',{method:"Get"});
         const response = await post.json();
-        //console.log(response);
+        console.log(response);
 
-        const category = response.map( ele=>
+        const category = response.map( ele =>
         `<div class="cat d-flex  j-content-center  align-item">
             <a href="cat-product.html?name=${ele}" onclick="getproducts()" >${ele}</a>
         </div>`
-        
+         
 ).join('');
         document.querySelector(".main-cat").innerHTML=category;
         }catch(e){
